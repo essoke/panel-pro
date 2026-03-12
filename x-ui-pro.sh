@@ -295,7 +295,7 @@ server {
 	proxy_intercept_errors on;
 	#X-UI Admin Panel
 	location /${panel_path}/ {
-        proxy_http_version 1.1;
+        proxy_http_version 1.1 Upgrade, Connection;
         proxy_set_header Upgrade \$http_upgrade;
         proxy_set_header Connection "upgrade";
 
@@ -311,7 +311,7 @@ server {
 		break;
 	}
         location /${panel_path} {
-        proxy_http_version 1.1;
+        proxy_http_version 1.1 Upgrade, Connection;
         proxy_set_header Upgrade \$http_upgrade;
         proxy_set_header Connection "upgrade";
 
@@ -433,7 +433,7 @@ cat > "/etc/nginx/snippets/includes.conf" << EOF
 		grpc_read_timeout 1d;
 		grpc_socket_keepalive on;
 		proxy_read_timeout 1d;
-		proxy_http_version 1.1;
+		proxy_http_version 1.1 Upgrade, Connection;
 		proxy_buffering off;
 		proxy_request_buffering off;
 		proxy_socket_keepalive on;
