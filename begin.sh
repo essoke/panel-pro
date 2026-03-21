@@ -1137,7 +1137,7 @@ if systemctl is-active --quiet x-ui; then clear
     msg_inf "Web Sub Page your first client: https://${domain}/${web_path}?name=first\n"
     msg_inf "Your local sub2sing-box instance: https://${domain}/$sub2singbox_path/\n"
   msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
-	msg_inf "Please Save this Screen!!"	
+	msg_inf "Сохраните эти данные!!"	
 else
 	nginx -t && printf '0\n' | x-ui | grep --color=never -i ':'
 	msg_err "sqlite and x-ui to be checked, try on a new clean linux! "
