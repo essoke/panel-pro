@@ -13,6 +13,7 @@
 - Совместимость с Cloudflare (только для WebSocket/GRPC)
 - 150+ случайных заглушек сайтов!
 - Операционная система Linux Debian12/Ubuntu24!
+- В будущем планируется добавление скрипта для панели Marzban
   >
    **ВАМ НЕОБХОДИМО 2 ДОМЕНА ИЛИ СУБДОМЕНА**
   1. Для панели и WebSocket/GRPC/HttpUgrade/SplitHttp
@@ -25,20 +26,20 @@
 ### Установка Panel-Pro
 
 ```
-bash <(wget -qO- https://github.com/mozaroc/x-ui-pro/raw/master/x-ui-pro.sh) -install yes -panel 1 -ONLY_CF_IP_ALLOW no
+bash <(wget -qO- https://raw.githubusercontent.com/essoke/panel-pro/refs/heads/master/panel-pro.sh) -install yes
 ```
 > 
-> Do not change SubDomain for renew SSL❗
+> Не меняйте поддомен при обновлении SSL сертификата❗
 
 
 **Деинсталляция Panel-Pro**:x:
 ```
-sudo su -c "bash <(wget -qO- https://raw.githubusercontent.com/mozaroc/x-ui-pro/master/x-ui-pro.sh) -Uninstall yes"
+sudo su -c "bash <(wget -qO- https://raw.githubusercontent.com/essoke/panel-pro/refs/heads/master/panel-pro.sh) -Uninstall yes"
 ```
 
 **Бэкап панели и конфигурации nginx**:x:
 ```
-sudo su -c "bash <(wget -qO- https://raw.githubusercontent.com/mozaroc/x-ui-pro/master/backup.sh)"
+sudo su -c "bash <(wget -qO- https://raw.githubusercontent.com/essoke/panel-pro/master/backup.sh)"
 ```
 
 ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
