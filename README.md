@@ -18,7 +18,7 @@
   1. Для панели и WebSocket/GRPC/HttpUgrade/SplitHttp
   2. Для маскировки REALITY
   >
-  Get Free subdomains - https://www.duckdns.org
+  Получение бесплатных субдоменов - https://www.duckdns.org
   
 ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
 
