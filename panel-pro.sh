@@ -623,7 +623,7 @@ if [[ -f "$XUIDB" ]]; then
 	     '0',
              '0',
 	     '0',
-             '${emoji_flag} reality',
+             '${emoji_flag} VPN',
 	     '1',
              '0',
 	     '',
@@ -634,7 +634,7 @@ if [[ -f "$XUIDB" ]]; then
     {
       "id": "${client_id}",
       "flow": "xtls-rprx-vision",
-      "email": "first",
+      "email": "Vless VPN",
       "limitIp": 0,
       "totalGB": 0,
       "expiryTime": 0,
@@ -914,6 +914,22 @@ if [[ -f "$XUIDB" ]]; then
   "routeOnly": false
 }'
 	);
+	INSERT INTO "inbounds" ("user_id","up","down","total","remark","enable","expiry_time","listen","port","protocol","settings","stream_settings","tag","sniffing") VALUES (
+             '1',
+	     '0',
+             '0',
+	     '0',
+             '${emoji_flag} TG PROXY',
+	     '1',
+             '0',
+	     '',
+             '',
+	     'mixed',
+             '{
+  "clients": [
+    {
+    }
+	]
 EOF
 /usr/local/x-ui/x-ui setting -username "${config_username}" -password "${config_password}" -port "${panel_port}" -webBasePath "${panel_path}"
 /usr/local/x-ui/x-ui cert -webCert "/root/cert/${domain}/fullchain.pem" -webCertKey "/root/cert/${domain}/privkey.pem"
