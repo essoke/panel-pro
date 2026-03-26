@@ -919,17 +919,40 @@ if [[ -f "$XUIDB" ]]; then
 	     '0',
              '0',
 	     '0',
-             '${emoji_flag} TG PROXY',
+             '${emoji_flag} Telegram PROXY',
 	     '1',
              '0',
 	     '',
-             '',
+             '${tgWS_port}",',
 	     'mixed',
              '{
-  "clients": [
+  "settings": [
     {
-    }
-	]
+		"auth": "password",
+		"accounts":[
+			{
+				"user": "${tgWS_username}"
+				"pass": "${tgWS_password}"
+			}
+		],
+		"udp": false,
+		"ip": 127.0.0.1
+    },
+	"streamSettings": "",
+	"tag":"first1",
+	"sniffing":{
+		"enabled":false,
+		"destOverride": [
+	     "http",
+         "tls",
+         "quic",
+         "fakedns"
+		],
+	"metadataOnly":false,
+	"routeOnly": false
+	}
+  ]
+	);
 EOF
 /usr/local/x-ui/x-ui setting -username "${config_username}" -password "${config_password}" -port "${panel_port}" -webBasePath "${panel_path}"
 /usr/local/x-ui/x-ui cert -webCert "/root/cert/${domain}/fullchain.pem" -webCertKey "/root/cert/${domain}/privkey.pem"
@@ -1179,6 +1202,10 @@ show_details() {
 		printf '\n'
 		msg_inf "Your local sub2sing-box instance: https://${domain}/$sub2singbox_path/"
 		printf '\n'
+		msg_inf "Your Telegram Proxy SOCKS5: ${reality_domain}"
+		printf 'Username:  %s\n\n' "${tgWS_username}"
+		printf 'Password:  %s\n\n' "${tgWS_password}"
+		printf '\n'
 		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 		msg_inf "Please Save this Screen!!"
 	else
@@ -1252,6 +1279,9 @@ main() {
 	panel_path=$(gen_random_string 10)
 	ws_port=$(make_port)
 	trojan_port=$(make_port)
+	tgWS_port=$(make_port)
+	tgWS_username=$(gen_random_string 10)
+	tgWS_password=$(gen_random_string 10)
 	ws_path=$(gen_random_string 10)
 	trojan_path=$(gen_random_string 10)
 	xhttp_path=$(gen_random_string 10)
