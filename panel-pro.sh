@@ -923,7 +923,7 @@ if [[ -f "$XUIDB" ]]; then
 	     '1',
              '0',
 	     '',
-             '${tgWS_port}",',
+             '${tgS5_port}",',
 	     'mixed',
              '{
   "settings": [
@@ -931,8 +931,8 @@ if [[ -f "$XUIDB" ]]; then
 		"auth": "password",
 		"accounts":[
 			{
-				"user": "${tgWS_username}"
-				"pass": "${tgWS_password}"
+				"user": "${tgS5_username}"
+				"pass": "${tgS5_password}"
 			}
 		],
 		"udp": false,
@@ -1203,8 +1203,8 @@ show_details() {
 		msg_inf "Your local sub2sing-box instance: https://${domain}/$sub2singbox_path/"
 		printf '\n'
 		msg_inf "Your Telegram Proxy SOCKS5: ${reality_domain}"
-		printf 'Username:  %s\n\n' "${tgWS_username}"
-		printf 'Password:  %s\n\n' "${tgWS_password}"
+		printf 'Username:  %s\n\n' "${tgS5_username}"
+		printf 'Password:  %s\n\n' "${tgS5_password}"
 		printf '\n'
 		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 		msg_inf "Please Save this Screen!!"
@@ -1279,9 +1279,9 @@ main() {
 	panel_path=$(gen_random_string 10)
 	ws_port=$(make_port)
 	trojan_port=$(make_port)
-	tgWS_port=$(make_port)
-	tgWS_username=$(gen_random_string 10)
-	tgWS_password=$(gen_random_string 10)
+	tgS5_port=$(make_port)
+	tgS5_username=$(gen_random_string 10)
+	tgS5_password=$(gen_random_string 10)
 	ws_path=$(gen_random_string 10)
 	trojan_path=$(gen_random_string 10)
 	xhttp_path=$(gen_random_string 10)
