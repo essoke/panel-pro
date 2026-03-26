@@ -1202,7 +1202,7 @@ show_details() {
 		printf '\n'
 		msg_inf "Your local sub2sing-box instance: https://${domain}/$sub2singbox_path/"
 		printf '\n'
-		msg_inf "Your Telegram Proxy SOCKS5: ${reality_domain}"
+		msg_inf "Your Telegram Proxy SOCKS5: ${domain}"
 		printf 'Username:  %s\n\n' "${tgS5_username}"
 		printf 'Password:  %s\n\n' "${tgS5_password}"
 		printf '\n'
