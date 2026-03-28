@@ -923,7 +923,7 @@ if [[ -f "$XUIDB" ]]; then
 	     '1',
              '0',
 	     '',
-             '${tgS5_port}",',
+             '${tgS5_port}',
 	     'mixed',
              '{
   "settings": [
@@ -1303,7 +1303,7 @@ install_MTProto() {
     SECRET=${SECRET}
     DOMAIN=${FAKE_DOMAIN}
     LINK=tg://proxy?server=${SERVER_IP}&port=${PORT}&secret=${SECRET}
-    EOF
+EOF
         echo "✅ Конфигурация сохранена в ~/mtproto_config.txt"
     
         # Показываем последние логи
