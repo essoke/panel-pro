@@ -936,10 +936,17 @@ if [[ -f "$XUIDB" ]]; then
 			}
 		],
 		"udp": false,
-		"ip": 127.0.0.1
-    },
+		"ip": 127.0.0.1   
+    }
+	]
+	}',
+	'{
 	"streamSettings": "",
+	},
+	'{
 	"tag":"first1",
+	}',
+	'{
 	"sniffing":{
 		"enabled":false,
 		"destOverride": [
@@ -951,7 +958,6 @@ if [[ -f "$XUIDB" ]]; then
 	"metadataOnly":false,
 	"routeOnly": false
 	}
-  ]
   }'
 	);
 EOF
