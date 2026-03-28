@@ -925,7 +925,7 @@ if [[ -f "$XUIDB" ]]; then
 	     '',
              '${tgS5_port}',
 	     'mixed',
-             '{
+            '{
   "settings": [
     {
 		"auth": "password",
@@ -952,6 +952,7 @@ if [[ -f "$XUIDB" ]]; then
 	"routeOnly": false
 	}
   ]
+  }'
 	);
 EOF
 /usr/local/x-ui/x-ui setting -username "${config_username}" -password "${config_password}" -port "${panel_port}" -webBasePath "${panel_path}"
