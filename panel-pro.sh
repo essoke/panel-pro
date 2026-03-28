@@ -1204,8 +1204,17 @@ show_details() {
 		msg_inf "Your local sub2sing-box instance: https://${domain}/$sub2singbox_path/"
 		printf '\n'
 		msg_inf "Your Telegram Proxy SOCKS5: ${domain}"
+		printf '\n'
 		printf 'Username:  %s\n\n' "${tgS5_username}"
 		printf 'Password:  %s\n\n' "${tgS5_password}"
+		printf '\n'
+		msg_inf "Your Telegram Proxy MTProto: ${domain}"
+		msg_inf "🔌 Port: ${PORT}"
+        printf "🔑 Secret: ${SECRET}"
+        printf "🌐 Fake TLS domain: ${FAKE_DOMAIN}"
+        printf "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        printf "🔗 Link for Telegram (click for add):"
+        printf -e "${GREEN}tg://proxy?server=${SERVER_IP}&port=${PORT}&secret=${SECRET}${NC}"
 		printf '\n'
 		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 		msg_inf "Please Save this Screen!!"
