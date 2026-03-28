@@ -942,7 +942,7 @@ if [[ -f "$XUIDB" ]]; then
 	}',
 	'{
 	"streamSettings": "",
-	},
+	}',
 	'{
 	"tag":"first1",
 	}',
@@ -1215,8 +1215,12 @@ install_MTProto() {
 
     # Дополняем случайными символами до 30 символов
     DOMAIN_LEN=${#DOMAIN_HEX}
-    NEEDED=$((30 - DOMAIN_LEN))
-    RANDOM_HEX=$(openssl rand -hex 15 | cut -c1-$NEEDED)
+    if (( DOMAIN_LEN < 30 )); then
+        NEEDED=$((30 - DOMAIN_LEN))
+        RANDOM_HEX=$(openssl rand -hex 15 | cut -c1-${NEEDED})
+    else
+        RANDOM_HEX=""
+    fi
 
     # Собираем секрет
     SECRET="ee${DOMAIN_HEX}${RANDOM_HEX}"
