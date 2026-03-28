@@ -1184,46 +1184,6 @@ setup_ufw() {
 	ufw --force enable
 }
 
-##############################Show Details#################################################################
-show_details() {
-	if systemctl is-active --quiet x-ui; then
-		clear
-		printf '0\n' | x-ui | grep --color=never -i ':'
-		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
-		nginx -T | grep -i 'ssl_certificate\|ssl_certificate_key'
-		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
-		certbot certificates | grep -i 'Path:\|Domains:\|Expiry Date:'
-		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
-		msg_inf "X-UI Secure Panel: https://${domain}/${panel_path}/"
-		printf '\n'
-		printf 'Username:  %s\n\n' "${config_username}"
-		printf 'Password:  %s\n\n' "${config_password}"
-		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
-		msg_inf "Web Sub Page your first client: https://${domain}/${web_path}?name=first"
-		printf '\n'
-		msg_inf "Your local sub2sing-box instance: https://${domain}/$sub2singbox_path/"
-		printf '\n'
-		msg_inf "Your Telegram Proxy SOCKS5: ${domain}"
-		printf '\n'
-		printf 'Username:  %s\n\n' "${tgS5_username}"
-		printf 'Password:  %s\n\n' "${tgS5_password}"
-		printf '\n'
-		msg_inf "Your Telegram Proxy MTProto: ${domain}"
-		msg_inf "🔌 Port: ${PORT}"
-        printf "🔑 Secret: ${SECRET}"
-        printf "🌐 Fake TLS domain: ${FAKE_DOMAIN}"
-        printf "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-        printf "🔗 Link for Telegram (click for add):"
-        printf -e "${GREEN}tg://proxy?server=${SERVER_IP}&port=${PORT}&secret=${SECRET}${NC}"
-		printf '\n'
-		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
-		msg_inf "Please Save this Screen!!"
-	else
-		nginx -t && printf '0\n' | x-ui | grep --color=never -i ':'
-		msg_err "sqlite and x-ui to be checked, try on a new clean linux! "
-	fi
-}
-
 ##############################MTProto install##############################################################
 install_MTProto() {
 	GREEN='\033[0;32m'
@@ -1325,6 +1285,46 @@ EOF
         sudo docker logs ${CONTAINER_NAME}
     fi
 
+}
+
+##############################Show Details#################################################################
+show_details() {
+	if systemctl is-active --quiet x-ui; then
+		clear
+		printf '0\n' | x-ui | grep --color=never -i ':'
+		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+		nginx -T | grep -i 'ssl_certificate\|ssl_certificate_key'
+		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+		certbot certificates | grep -i 'Path:\|Domains:\|Expiry Date:'
+		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+		msg_inf "X-UI Secure Panel: https://${domain}/${panel_path}/"
+		printf '\n'
+		printf 'Username:  %s\n\n' "${config_username}"
+		printf 'Password:  %s\n\n' "${config_password}"
+		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+		msg_inf "Web Sub Page your first client: https://${domain}/${web_path}?name=first"
+		printf '\n'
+		msg_inf "Your local sub2sing-box instance: https://${domain}/$sub2singbox_path/"
+		printf '\n'
+		msg_inf "Your Telegram Proxy SOCKS5: ${domain}"
+		printf '\n'
+		printf 'Username:  %s\n\n' "${tgS5_username}"
+		printf 'Password:  %s\n\n' "${tgS5_password}"
+		printf '\n'
+		msg_inf "Your Telegram Proxy MTProto: ${domain}"
+		msg_inf "🔌 Port: ${PORT}"
+        printf "🔑 Secret: ${SECRET}"
+        printf "🌐 Fake TLS domain: ${FAKE_DOMAIN}"
+        printf "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        printf "🔗 Link for Telegram (click for add):"
+        printf -e "${GREEN}tg://proxy?server=${SERVER_IP}&port=${PORT}&secret=${SECRET}${NC}"
+		printf '\n'
+		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+		msg_inf "Please Save this Screen!!"
+	else
+		nginx -t && printf '0\n' | x-ui | grep --color=never -i ':'
+		msg_err "sqlite and x-ui to be checked, try on a new clean linux! "
+	fi
 }
 
 ##############################Main########################################################################
