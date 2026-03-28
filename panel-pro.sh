@@ -1215,12 +1215,9 @@ install_MTProto() {
 
     # Дополняем случайными символами до 30 символов
     DOMAIN_LEN=${#DOMAIN_HEX}
-    if (( DOMAIN_LEN < 30 )); then
-        NEEDED=$((30 - DOMAIN_LEN))
-        RANDOM_HEX=$(openssl rand -hex 15 | cut -c1-${NEEDED})
-    else
-        RANDOM_HEX=""
-    fi
+    RANDOM_PART=$(openssl rand -hex 16)
+    DOMAIN_HEX=$(echo -n "$reality_domain" | xxd -ps | tr -d '\n')
+    SECRET="ee${RANDOM_PART}${DOMAIN_HEX}"
 
     # Собираем секрет
     SECRET="ee${DOMAIN_HEX}${RANDOM_HEX}"
@@ -1262,7 +1259,7 @@ install_MTProto() {
     # Проверяем результат
     sleep 3
     if sudo docker ps | grep -q ${CONTAINER_NAME}; then
-        SERVER_IP=$(curl -s ifconfig.me)
+        SERVER_IP=$(curl -4 -s ifconfig.me)
     
         echo -e "${GREEN}✅ УСПЕШНО${NC}"
         echo ""
