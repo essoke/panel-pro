@@ -1313,11 +1313,11 @@ show_details() {
 		printf '\n'
 		msg_inf "Your Telegram Proxy MTProto: ${domain}"
 		msg_inf "🔌 Port: ${PORT}"
-        printf "🔑 Secret: ${SECRET}"
-        printf "🌐 Fake TLS domain: ${FAKE_DOMAIN}"
-        printf "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-        printf "🔗 Link for Telegram (click for add):"
-        printf -e "${GREEN}tg://proxy?server=${SERVER_IP}&port=${PORT}&secret=${SECRET}${NC}"
+        echo "🔑 Secret: ${SECRET}"
+        echo "🌐 Fake TLS domain: ${FAKE_DOMAIN}"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "🔗 Link for Telegram (click for add):"
+        echo -e "${GREEN}tg://proxy?server=${SERVER_IP}&port=${PORT}&secret=${SECRET}${NC}"
 		printf '\n'
 		msg_inf "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
 		msg_inf "Please Save this Screen!!"
