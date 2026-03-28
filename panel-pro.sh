@@ -1197,6 +1197,7 @@ install_MTProto() {
     YELLOW='\033[1;33m'
     BLUE='\033[0;34m'
     NC='\033[0m'
+	sudo apt install docker.io -y
 
     CONTAINER_NAME="mtproto-proxy"
     PORT="443"
